@@ -1,0 +1,47 @@
+<div>
+  <% if @gitHub_hash %>
+    <ul class="pure-menu-list">
+      <% @gitHub_hash.each do |hash| %>
+        <li>
+          <p>
+            <span class="post-category post-category-pure">PR</span><%= hash["title"] %>
+            <% link = hash["url"].gsub('https://api.github.com/repos/symfony/symfony/pulls', 'https://github.com/symfony/symfony/pull') %>
+            <a href="<%= link %>" class="post-category" target="_blank">Visit</a>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">         
+        <li class="pure-menu-item">
+          <a href="/next_pulls/1" class="button-xsmall pure-button">1</a>
+          <a href="/next_pulls/2" class="button-xsmall pure-button">2</a>
+          <a href="/next_pulls/3" class="button-xsmall pure-button">3</a>
+        </li>
+      </ul>
+    </div>
+
+  <% end %>
+</div>
+
+<div>
+  <% if @gitHub_issues %>
+    <ul class="pure-menu-list">
+      <% @gitHub_issues.each do |hash| %>
+        <li><p><span class="post-category post-category-pure">USER</span><%= hash["user"]["login"] %> - <span class="post-category post-category-design">Issue </span><% label = hash["title"] %>
+        <%= label %></p>
+        </li>
+      <% end %>
+    </ul>
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">         
+        <li class="pure-menu-item">
+          <a href="/next_issues/1" class="button-xsmall pure-button">1</a>
+          <a href="/next_issues/2" class="button-xsmall pure-button">2</a>
+          <a href="/next_issues/3" class="button-xsmall pure-button">3</a>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
